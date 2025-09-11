@@ -40,11 +40,13 @@ export default function ColorBox() {
 
       <div
         style={{
-          width: largura,
-          height: altura,
-          backgroundColor: cor,
-          border: "1px solid #000",
-          marginTop: "20px",
+            display: "flex", 
+            justifyContent: "center",
+            width: largura,
+            height: altura,
+            backgroundColor: cor,
+            border: "1px solid #000",
+            marginTop: "20px",
         }}
       ></div>
     </div>
