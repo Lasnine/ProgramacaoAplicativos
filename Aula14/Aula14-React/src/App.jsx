@@ -1,10 +1,10 @@
-import { useState } from 'react'
 import './App.css'
+import Api from './Componentes/Api'
 
 function App() {
   return (
     <>
-      
+      <Api></Api>
     </>
   )
 }
