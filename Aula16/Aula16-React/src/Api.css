@@ -1,0 +1,21 @@
+@import "tailwindcss";
+
+.logo{
+    min-height: 70vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.Card{
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    margin: 60px;
+    height: 100%;
+    width: 80%;
+    background-color: #82d850;
+    border-radius: 10px;
+    border: 1px solid transparent;
+    flex-direction: column;
+}
