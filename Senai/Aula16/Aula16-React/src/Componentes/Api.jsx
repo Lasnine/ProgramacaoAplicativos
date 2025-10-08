@@ -29,7 +29,8 @@ function Api() {
 
   return (
     <>
-      <h1 style={{color: '#62b134'}}>PERSONAGENS</h1>
+      <h1 style={{color: '#62b134', fontFamily: 'oblique', fontWeight:'bold'}}>PERSONAGENS</h1>
+      <br />
       <ol style={{ textAlign: 'left', paddingLeft: '20px', listStyle: 'none', columns:'2' }}>
         {apis.map(api => (
           <Card
