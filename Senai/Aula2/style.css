@@ -1,0 +1,93 @@
+.flex {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-direction: row;
+    margin-bottom: 30px;
+}
+
+.initialboxcenter {
+    display: flex;
+    justify-content: center;
+    background-color: cadetblue;
+    width: 200px;
+    height: 200px;
+}
+
+.initialboxcolumn {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-direction: column;
+    background-color: cadetblue;
+    width: 200px;
+    height: 200px;
+}
+
+.initialbox {
+    display: flex;
+    justify-content: space-between;
+    background-color: cadetblue;
+    width: 200px;
+    height: 200px;
+}
+
+.initialbox4 {
+    display: flex;
+    background-color: cadetblue;
+    width: 200px;
+    height: 200px;
+}
+
+.initialboxleft {
+    display: flex;
+    justify-content: start;
+    background-color: cadetblue;
+    width: 200px;
+    height: 200px;
+}
+
+.initialboxright {
+    display: flex;
+    justify-content: end;
+    background-color: cadetblue;
+    width: 200px;
+    height: 200px;
+}
+
+.box {
+    width:33.3%;
+    height: 33.3%;
+    background-color:coral;
+}
+
+.boxdouble {
+    /* make it double */
+    width:33.3%;
+    height: 33.3%;
+    background-color:coral;
+}
+
+.upbox {
+    display: flex;
+    align-self: flex-start;
+    width:33.3%;
+    height: 33.3%;
+    background-color:coral;
+}
+
+.downbox {
+    display: flex;
+    align-self: flex-end;
+    width:33.3%;
+    height: 33.3%;
+    background-color:coral;
+}
+
+.centerbox {
+    display: flex;
+    align-self: center;
+    width:33.3%;
+    height: 33.3%;
+    background-color:coral;
+}

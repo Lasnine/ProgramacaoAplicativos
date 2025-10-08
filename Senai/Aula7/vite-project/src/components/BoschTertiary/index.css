@@ -1,0 +1,22 @@
+.c { 
+    display: inline;
+    background-color: #0000;
+    color:#007bc0;
+    padding: .75rem 1rem;
+    font-weight: 400;
+    border-radius: 0;
+    border:0;
+}
+
+.c-link {
+    text-decoration: none;
+}
+
+.c:hover {
+    color:#00629a;
+}
+
+.c:focus {
+    color:#004975;
+    outline: none;
+}

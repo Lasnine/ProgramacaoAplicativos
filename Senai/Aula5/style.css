@@ -1,0 +1,32 @@
+* {
+    padding: 0px;
+    margin: 0px;
+    box-sizing: border-box;
+}
+
+.circle {
+    background-color: thistle;
+    height: 300px;
+    width: 300px;
+    border-radius: 50%;
+}
+
+.ok {
+    background-color: lightblue;
+}
+
+.notok {
+    background-color:lightpink;
+}
+
+.center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.button {
+    width: 100px;
+    background-color: transparent;
+}
