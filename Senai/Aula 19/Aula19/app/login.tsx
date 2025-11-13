@@ -1,13 +1,14 @@
 import { Platform, StyleSheet, Text, TextInput, TouchableOpacity, View } from 'react-native';
+import { useState } from 'react'
 
 export default function Login() {
   return (
     <>  
-        <View style={styles.alinhamento}>
+        <View style={styles.alinhamento}> 
           <View style={styles.square}></View>
           <View style={styles.margem}>
             <Text style={[styles.Color,  { marginTop: 60 }]}>LOGIN</Text>
-            <TextInput style={[styles.input,  { marginTop: 15 }]} placeholder='Usuario'/>
+            <TextInput style={[styles.input,  { marginTop: 15 }]} placeholder='Email'/>
             <TextInput style={[styles.input,  { marginTop: 15 }]} secureTextEntry={true} placeholder='Senha'/>
             <TouchableOpacity style={[styles.button, { marginTop: 15 }]}>
               <View>
