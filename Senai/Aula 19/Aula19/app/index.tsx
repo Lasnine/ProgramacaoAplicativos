@@ -2,16 +2,43 @@ import { createUserWithEmailAndPassword, getAuth } from 'firebase/auth';
 import React, { useEffect, useState } from 'react';
 import { Alert, StyleSheet, Text, TextInput, TouchableOpacity, View } from 'react-native';
 import { app } from '../firebaseConfig';
+import { router } from 'expo-router';
+import Swal from 'sweetalert2'
 
 export default function Cadastro() {
   const auth = getAuth(app);
-  const sisign = () => {
-    if (senha === confirmarSenha){
-      createUserWithEmailAndPassword(auth, email, senha)
-      limparCampos();
+  const sisign = async() => {
+    if(senha.length < 6)
+    {
+      return Swal.fire({
+        icon: 'error',
+        title: 'Error',
+        text: 'A senha deve conter no minimo 6 caracteres'
+      })
     }
-    else{
-      return Alert.alert('Erro');
+    if(senha != confirmarSenha){
+      return Swal.fire({
+        icon: 'error',
+        title: 'Error',
+        text: 'As senhas não estão iguais'
+      })
+    }
+    try{
+      await createUserWithEmailAndPassword(auth, email, senha);
+      limparCampos()
+      Swal.fire({
+        icon: 'success',
+        title: 'Sucesso!',
+        text: 'Cadastro realizado com sucesso!'
+      })
+      router.navigate('/login')
+    }
+    catch(e){
+      return Swal.fire({
+        icon: 'error',
+        title: 'Error',
+        text: 'Email já esta registrado'
+      })
     }
   }
 
@@ -28,8 +55,8 @@ export default function Cadastro() {
   const senhasIguais = senha !== '' && senha === confirmarSenha;
 
   useEffect(() =>{
-    console.log(email, senha, confirmarSenha)
-  }), [email, senha, confirmarSenha]
+    console.log(nome, email, senha, confirmarSenha)
+  }), [nome, email, senha, confirmarSenha]
 
   return (
     <View style={styles.alinhamento}>
@@ -80,7 +107,7 @@ export default function Cadastro() {
 
         <View style={[styles.centro, {marginTop: 10}]}>
           <Text style={styles.conta}>Already have an acount?{" "}</Text>
-          <TouchableOpacity onPress={() => {}}>
+          <TouchableOpacity onPress={() => router.navigate('/login')}>
             <Text style = {styles.login}>Login</Text>
           </TouchableOpacity>
         </View>

@@ -1,7 +1,9 @@
 import { Platform, StyleSheet, Text, TextInput, TouchableOpacity, View } from 'react-native';
 import { useState } from 'react'
+import { router } from 'expo-router';
 
 export default function Login() {
+
   return (
     <>  
         <View style={styles.alinhamento}> 
@@ -10,13 +12,19 @@ export default function Login() {
             <Text style={[styles.Color,  { marginTop: 60 }]}>LOGIN</Text>
             <TextInput style={[styles.input,  { marginTop: 15 }]} placeholder='Email'/>
             <TextInput style={[styles.input,  { marginTop: 15 }]} secureTextEntry={true} placeholder='Senha'/>
-            <TouchableOpacity style={[styles.button, { marginTop: 15 }]}>
+            <TouchableOpacity onPress={() => router.navigate('/home')} style={[styles.button, { marginTop: 15 }]}>
               <View>
                 <Text style={[styles.text, { marginTop: 10 }]}>
                   LOGIN
                 </Text>
               </View>
             </TouchableOpacity>
+            <View style={[styles.centro, {marginTop: 10}]}>
+              <Text style={styles.conta}>Already have an acount?{" "}</Text>
+              <TouchableOpacity onPress={() => router.navigate('/')}>
+                <Text style = {styles.create}>Sing up</Text>
+              </TouchableOpacity>
+            </View>
           </View>
           <View style={styles.square2}></View>
         </View>
@@ -25,6 +33,20 @@ export default function Login() {
 }
 
 const styles = StyleSheet.create({
+  centro:{
+    flexDirection: 'row',
+    alignSelf: 'center',
+    textAlign: 'center',
+  },
+  conta: {
+    color: 'black',
+    fontSize: 12,
+  },
+  create: {
+    color: 'black',
+    fontSize: 12,
+    fontWeight: 'bold',
+  },
   square:{
     width: '100%',
     height: '2%',
