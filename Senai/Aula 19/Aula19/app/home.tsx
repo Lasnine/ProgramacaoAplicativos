@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { Alert, StyleSheet, Text, TextInput, TouchableOpacity, View, Image } from 'react-native';
+import { router } from 'expo-router';
 
 export default function Home(){
 
@@ -10,7 +11,7 @@ export default function Home(){
                 source={require('../assets/images/aaaaa.png')}
                 style={[styles.rocky, {marginTop:20}]}
                 />
-                <View style={[{marginTop: 20}]}></View>
+                <View style={[{marginTop: 10}]}></View>
                 <Image
                 source={require('../assets/images/Logo.png')}
                 style={[styles.img, {margin:0}]}
@@ -19,24 +20,29 @@ export default function Home(){
                 source={require('../assets/images/asap.png')}
                 style={[styles.asap, {margin:0}]}
                 />
-                <View style={[styles.square, {margin: 10}]}>
-                    <Image 
-                    source={require('../assets/images/violet.jpg')}
-                    style={[styles.imagem, {margin: 20}]}
-                    />
-                </View>
+
+                <TouchableOpacity  onPress={() => router.navigate('/registro')} style={[styles.button, { marginTop: 10 }]}>
+                    <View style={[styles.square]}>
+                        <Image 
+                        source={require('../assets/images/violet.jpg')}
+                        style={[styles.imagem, {margin: 20}]}
+                        />
+                    </View>        
+                </TouchableOpacity>
             </View>
             <View>
                 <Image
                 source={require('../assets/images/ye.png')}
                 style={[styles.ye, {marginTop:0}]}
                 />
-                <View style={styles.margem2}></View>
             </View>
         </View>
     );
 };
 const styles = StyleSheet.create({
+    button:{
+
+    },
     rocky:{
         width: 100,
         height: 100,
@@ -48,13 +54,15 @@ const styles = StyleSheet.create({
         alignSelf: 'center',
     },
     img:{
-        width: 370,
-        height: 50,
+        width: 360,
+        height: 45,
         alignSelf: 'center',
     },
     ye:{
-        width: 460,
-        height: 410,
+        position: 'absolute',
+        bottom: 0,
+        width: 370,
+        height: 350,
         alignSelf: 'center',
     },
     imagem:{
@@ -66,8 +74,8 @@ const styles = StyleSheet.create({
     alinhamento:{
         justifyContent: 'space-between',
         height: '100%',
-        alignSelf: 'center',
         width: '100%',
+        alignSelf: 'center',
     },
     square:{
         alignSelf: 'center',

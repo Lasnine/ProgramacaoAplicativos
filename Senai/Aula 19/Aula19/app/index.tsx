@@ -1,9 +1,9 @@
+import { router } from 'expo-router';
 import { createUserWithEmailAndPassword, getAuth } from 'firebase/auth';
 import React, { useEffect, useState } from 'react';
-import { Alert, StyleSheet, Text, TextInput, TouchableOpacity, View } from 'react-native';
+import { Image, StyleSheet, Text, TextInput, TouchableOpacity, View } from 'react-native';
+import Swal from 'sweetalert2';
 import { app } from '../firebaseConfig';
-import { router } from 'expo-router';
-import Swal from 'sweetalert2'
 
 export default function Cadastro() {
   const auth = getAuth(app);
@@ -61,9 +61,12 @@ export default function Cadastro() {
   return (
     <View style={styles.alinhamento}>
       <View style={styles.square}></View>
+        <Image
+        source={require('../assets/images/Corinthians.png')}
+        style={[styles.img, {marginTop:5}]}
+        />
       <View style={styles.margem}>
-        <Text style={[styles.Color, { marginTop: 60 }]}>CADASTRO</Text>
-
+        <Text style={[styles.Color, { marginTop: 0 }]}>CADASTRO</Text>
         <TextInput style={[styles.input, { marginTop: 15 }]} onChangeText={(value) => setNome(value)} placeholder="Nome" />
         <TextInput style={[styles.input, { marginTop: 15 }]} onChangeText={(value) => setEmail(value)} placeholder="Email" />
 
@@ -120,6 +123,11 @@ export default function Cadastro() {
 }
 
 const styles = StyleSheet.create({
+  img:{
+    width: 100,
+    height: 125,
+    alignSelf: 'center',
+  },
   centro:{
     flexDirection: 'row',
     alignSelf: 'center',
@@ -135,11 +143,15 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
   },
   square: {
+    position: 'absolute',
+    top: 0,
     width: '100%',
     height: '2%',
     backgroundColor: 'black',
   },
   square2: {
+    position: 'absolute',
+    bottom: 0,
     width: '100%',
     height: '2%',
     backgroundColor: 'black',
@@ -155,7 +167,7 @@ const styles = StyleSheet.create({
     textAlign: 'center',
   },
   alinhamento: {
-    justifyContent: 'space-between',
+    justifyContent: 'center',
     height: '100%',
     width: '100%',
   },
