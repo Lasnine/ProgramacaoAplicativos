@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
-import { Alert, StyleSheet, Text, TextInput, TouchableOpacity, View, Image } from 'react-native';
+import { router } from 'expo-router';
+import { Linking, Alert, StyleSheet, Text, TextInput, TouchableOpacity, View, Image } from 'react-native';
 import { getFirestore, collection, addDoc, serverTimestamp } from 'firebase/firestore';
 import { db } from '@/firebaseConfig';
 import { getAuth } from 'firebase/auth';
@@ -36,12 +37,11 @@ export default function Registro(){
                 createdat: serverTimestamp(),
                 update: serverTimestamp(),
             };
-            await addDoc(collection(db, 'playlist'), playlist);
+            await addDoc(collection(db, 'playlists'), playlist);
             console.log('registro realizado com sucesso')
             
             limparCampos();
         } 
-
         catch (e) {
             console.log('Erro, não foi possíverl realizar o registro ', e)
         }
@@ -51,23 +51,43 @@ export default function Registro(){
         <View style={[styles.alinhamento]}>
             <View style={[styles.square]}></View>
             <View style={[styles.margem]}>
-                <Text style={[styles.title, {marginTop: 150}]}>Crie o seu albúm</Text>
+                <Image
+                source={require('../assets/images/playlist.jpg')}
+                style={[styles.imagem, {marginTop:50}]}
+                />
 
                 <TextInput style={[styles.input, {marginTop: 20}]} onChangeText={setMusica} placeholder='Música'/>
                 <TextInput style={[styles.input, {marginTop: 15}]} onChangeText={setCantor} placeholder='Cantor'/>
                 <TextInput style={[styles.input, {marginTop: 15}]} onChangeText={setAlbum} placeholder='Albúm'/>
                 <TextInput style={[styles.input, {marginTop: 15}]} onChangeText={setLink} placeholder='Link da Música'/>
 
-                <TouchableOpacity style = {styles.button} onPress={salvar}>
-                <Text >Salvar</Text>
+                <TouchableOpacity style = {[styles.button, {marginTop: 20}]} onPress={salvar}>
+                    <Text style={[styles.text, {marginTop: 5}]}>Salvar</Text>
                 </TouchableOpacity>
             </View>
+            <TouchableOpacity onPress={() => Linking.openURL('https://www.spotify.com/br-pt/free/')}>
+                <Image
+                    source={require('../assets/images/spotify.png')}
+                    style={[styles.img, {marginTop:10}]}
+                />
+            </TouchableOpacity>
             <View style={[styles.square2]}></View>
         </View>
     );
 };
 const styles = StyleSheet.create({
+    imagem:{
+        alignSelf: 'center',
+        height: 210,
+        width: 350,
+    },
+    img:{
+        alignSelf: 'center',
+        height: 200,
+        width: 200,
+    },
     text:{
+        alignSelf: 'center',
         color: 'black',
         fontWeight: 'bold',
         fontSize: 20,
