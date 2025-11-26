@@ -18,32 +18,26 @@ export default function Registro(){
     };
     const salvar = async () =>{
         try {
-            const auth = getAuth()
-            const user = auth.currentUser
-            if(!user){
-                console.log('não logado')
-                return;
-            }
-            if(!musica || !cantor || !album || !link){
-                console.log('preencha')
+
+            if(!musica || !cantor || !link){
+                console.log('preencha todos os campos')
                 return;
             }
             const playlist = {
                 musica,
                 cantor,
-                album, 
+                album: album || null, 
                 link,
-                userid: user.uid,
                 createdat: serverTimestamp(),
                 update: serverTimestamp(),
             };
             await addDoc(collection(db, 'playlists'), playlist);
-            console.log('registro realizado com sucesso')
-            
+            console.log('Registro realizado com sucesso')
             limparCampos();
         } 
         catch (e) {
             console.log('Erro, não foi possíverl realizar o registro ', e)
+            limparCampos();
         }
     }
 
@@ -60,10 +54,16 @@ export default function Registro(){
                 <TextInput style={[styles.input, {marginTop: 15}]} onChangeText={setCantor} placeholder='Cantor'/>
                 <TextInput style={[styles.input, {marginTop: 15}]} onChangeText={setAlbum} placeholder='Albúm'/>
                 <TextInput style={[styles.input, {marginTop: 15}]} onChangeText={setLink} placeholder='Link da Música'/>
+                
+                <View style={{flexDirection: 'row', alignSelf: 'center'}}>
+                    <TouchableOpacity style = {[styles.button, {marginTop: 20, marginRight: 10}]} onPress={salvar}>
+                        <Text style={[styles.text, {marginTop: 5}]}>Salvar</Text>
+                    </TouchableOpacity>
 
-                <TouchableOpacity style = {[styles.button, {marginTop: 20}]} onPress={salvar}>
-                    <Text style={[styles.text, {marginTop: 5}]}>Salvar</Text>
-                </TouchableOpacity>
+                    <TouchableOpacity style = {[styles.button, {marginTop: 20, marginLeft: 10}]} onPress={() => router.navigate('/list')}>
+                        <Text style={[styles.text, {marginTop: 5}]}>Playlist</Text>
+                    </TouchableOpacity>
+                </View>
             </View>
             <TouchableOpacity onPress={() => Linking.openURL('https://www.spotify.com/br-pt/free/')}>
                 <Image

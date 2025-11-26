@@ -61,8 +61,8 @@ const styles = StyleSheet.create({
     ye:{
         position: 'absolute',
         bottom: 0,
-        width: 370,
-        height: 350,
+        width: 400,
+        height: 380,
         alignSelf: 'center',
     },
     imagem:{
