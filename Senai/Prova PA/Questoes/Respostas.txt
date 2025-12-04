@@ -1,0 +1,16 @@
+1) Identifique o erro no código abaixo:
+    B) justifyContent não aceita o valor "middle".
+
+2) Analise o erro no código abaixo:
+    B) O estado está sendo inicializado com uma string ao invés de um useState.
+
+3) Identifique o problema de estilo no código:
+    D) A classe title não está sendo aplicada corretamente.
+
+4) Sobre o Flexbox no React Native, qual opção é verdadeira?
+    D) Para usar Flexbox no RN é necessário importar uma biblioteca.
+
+5) Explique a diferença entre o JavaScript e o TypeScript utilizando exemplos.
+    R: O typeScript é a mesma coisa que o JavaScript, porém ele tem tipos que podemos importar e também quando seu código está errado, 
+    ele dá o erro no VsCode mesmo. Já no Javascript, não tem tipo e muitas das vezes ele só vai mostrar o erro quando você rodar, ou seja, 
+    não é muito didático. 
