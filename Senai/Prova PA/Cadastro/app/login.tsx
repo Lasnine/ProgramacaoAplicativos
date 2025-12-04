@@ -1,7 +1,7 @@
 import { router } from 'expo-router';
 import { signInWithEmailAndPassword, getAuth } from 'firebase/auth';
 import React, { useEffect, useState } from 'react';
-import { StyleSheet, Text, TextInput, TouchableOpacity, View } from 'react-native';
+import { Image, StyleSheet, Text, TextInput, TouchableOpacity, View } from 'react-native';
 import Swal from 'sweetalert2';
 import { app } from '../firebaseConfig';
 
@@ -32,7 +32,6 @@ export default function Login() {
     <>  
         <View style={styles.alinhamento}> 
           <View style={styles.margem}>
-
             <Text style={[styles.Color]}>LOGIN</Text>
 
             <TextInput style={[styles.input,  { marginTop: 15 }]} onChangeText={setEmail} placeholder='Email'/>
@@ -52,6 +51,10 @@ export default function Login() {
                 <Text style = {styles.create}>Sing up</Text>
               </TouchableOpacity>
             </View>
+            <Image
+            source={require('../assets/images/flor.jpg')}
+            style={[styles.img, {margin: 0}]}
+            />
           </View>
         </View>
     </>
@@ -59,6 +62,11 @@ export default function Login() {
 }
 
 const styles = StyleSheet.create({
+    img:{
+        width: 200,
+        height: 150,
+        alignSelf: 'center',
+    },
     create: {
         color: 'black',
         fontSize: 12,

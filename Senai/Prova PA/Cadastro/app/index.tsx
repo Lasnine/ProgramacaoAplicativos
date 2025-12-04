@@ -1,7 +1,7 @@
 import { router } from 'expo-router';
 import { createUserWithEmailAndPassword, getAuth } from 'firebase/auth';
 import React, { useEffect, useState } from 'react';
-import { StyleSheet, Text, TextInput, TouchableOpacity, View } from 'react-native';
+import { Image, StyleSheet, Text, TextInput, TouchableOpacity, View } from 'react-native';
 import Swal from 'sweetalert2';
 import { app } from '../firebaseConfig';
 
@@ -61,7 +61,7 @@ export default function Cadastro() {
   return (
     <View style={styles.alinhamento}>
       <View style={styles.margem}>
-        <Text style={[styles.Color, { marginTop: 0 }]}>CADASTRO</Text>
+        <Text style={[styles.Color, { marginTop: 150 }]}>CADASTRO</Text>
         <TextInput style={[styles.input, { marginTop: 15 }]} onChangeText={(value) => setNome(value)} placeholder="Nome" />
         <TextInput style={[styles.input, { marginTop: 15 }]} onChangeText={(value) => setEmail(value)} placeholder="Email" />
 
@@ -109,13 +109,29 @@ export default function Cadastro() {
             <Text style = {styles.login}>Login</Text>
           </TouchableOpacity>
         </View>
-
+        <View style={[styles.center, {marginTop: 150}]}>
+          <Image
+          source={require('../assets/images/snoopy.jpg')}
+          style={[styles.img, {margin: 0}]}
+          />
+        </View>
       </View>
     </View>
   );
 }
 
 const styles = StyleSheet.create({
+  img:{
+    position: 'absolute',
+    bottom:0,
+    width: 150,
+    height: 150,
+    alignSelf: 'center',
+  },
+  center:{
+    alignSelf: 'center',
+    textAlign: 'center',
+  },
   centro:{
     flexDirection: 'row',
     alignSelf: 'center',
